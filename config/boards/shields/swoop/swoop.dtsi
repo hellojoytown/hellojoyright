@@ -10,6 +10,7 @@
 / {
 	chosen {
 		zephyr,display = &oled;
+zmk,underglow = &led_strip;
              zmk,physical-layout = &swoop;
 	};
 
