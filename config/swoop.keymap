@@ -113,16 +113,6 @@
               &none  &none  &none  &none  &none  &none  &none  &none
             >;
         };
- base {
-            display-name = "Base";
-            bindings = // etc.
-        };
-
-        fn_layer {
-            display-name = "Fn";
-            bindings = // etc.
-        };
-
         extra1 {
             status = "reserved";
         };
