@@ -11,8 +11,7 @@
 
 include:
   - board: nice_nano_v2
-    shield: hellojoy_left 
-    
+    shield: hellojoy_left     
   - board: nice_nano_v2
     shield: hellojoy_right 
   - board: nice_nano_v2
