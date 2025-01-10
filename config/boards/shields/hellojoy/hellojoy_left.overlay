@@ -5,7 +5,7 @@
  */
 
 
-
+#include "hellojoy.dtsi"
 / {
     chosen {
         zmk,kscan = &kscan0;
