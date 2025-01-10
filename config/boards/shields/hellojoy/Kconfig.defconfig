@@ -1,7 +1,7 @@
 # Copyright (c) 2022 Duccio Breschi
 # SPDX-License-Identifier: MIT
 
-if SHIELD_HELLOJOY_LEFT
+if SHIELD_HELLOJOY_RIGHT
 
 config ZMK_KEYBOARD_NAME
     default "HelloJoy"
