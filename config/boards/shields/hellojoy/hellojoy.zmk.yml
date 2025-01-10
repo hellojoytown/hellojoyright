@@ -4,7 +4,6 @@ name: hellojoy
 type: shield
 url: https://github.com/hellojoytown/hellojoy
 requires: [nice_nano_v2]
-
 features:
   - keys
   - bluetooth 
