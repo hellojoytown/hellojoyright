@@ -1,0 +1,116 @@
+
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
+
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/outputs.h>
+
+
+/ {
+    behaviors {
+        bt_clr: bluetooth_clear {
+            compatible = "zmk,behavior-hold-tap";
+            label = "BT_CLEAR_TAP";
+            #binding-cells = <2>;
+            tapping-term-ms = <1000>;    // 长按时间设为1秒
+            bindings = <&bt>, <&none>;   // 定义行为类型，而不是具体的行为实例
+        };
+    };
+
+    macros {
+        bt_0: bt_profile_0 {
+            label = "BT_PROFILE_0";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 0>;
+        };
+        bt_1: bt_profile_1 {
+            label = "BT_PROFILE_1";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 1>;
+        };
+        bt_2: bt_profile_2 {
+            label = "BT_PROFILE_2";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 2>;
+        };
+        bt_3: bt_profile_3 {
+            label = "BT_PROFILE_3";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 3>;
+        };
+        bt_4: bt_profile_4 {
+            label = "BT_PROFILE_4";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 4>;
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+            bindings = <
+                // 左手部分
+                &kp ESC     &kp F1      &kp F2      &kp F3      &kp F4      &kp F5
+                &kp GRAVE   &kp N1      &kp N2      &kp N3      &kp N4      &kp N5      &kp N6
+                &out OUT_BLE &kp TAB     &kp Q       &kp W       &kp E       &kp R       &kp T
+                &mo 2       &kp CAPS    &kp A       &kp S       &kp D       &kp F       &kp G                
+                &mo 2       &kp LSHFT   &kp Z       &kp X       &kp C       &kp V       &kp B
+                &kp ENTER   &kp LCTRL   &kp LCMD    &kp LALT    &kp SPACE
+
+                // 右手部分 (将 &bt BT_NXT 改为 &mo 2)
+                &kp BSLH     &kp F6      &kp F7      &kp F8      &kp F9      &kp F10     &kp F11     &kp F12     &bt BT_NXT  &bt BT_CLR  &out OUT_BLE
+                &kp N7       &kp N8      &kp N9      &kp N0      &kp MINUS   &kp EQUAL   &kp BSPC                &kp INS     &kp HOME    &kp PG_UP
+                &kp Y        &kp U       &kp I       &kp O       &kp P       &kp LBKT    &kp RBKT    &kp RET     &kp DEL     &kp END     &kp PG_DN
+                &kp H        &kp J       &kp K       &kp L       &kp SEMI    &kp SINGLE_QUOTE
+                &kp B        &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH    &kp DOWN    &kp RSHIFT              &kp UP
+                &kp RET      &kp RALT    &kp RWIN    &mo 1       &kp RCTRL                           &kp LEFT    &kp DOWN    &kp RIGHT
+            >;
+        };
+
+        fn_layer {
+            bindings = <
+                // 左手部分
+                &trans       &kp C_PWR    &kp C_BRI_DN &kp C_BRI_UP &kp C_EJECT  &kp C_PREV   &kp C_NEXT
+                &trans       &trans       &trans       &trans       &trans       &trans       &trans
+                &trans       &trans       &trans       &trans       &trans       &trans       &trans
+                &trans       &trans       &trans       &trans       &trans       &trans       &trans
+                &trans       &trans       &trans       &trans       &trans
+
+                // 右手部分
+                &trans       &kp C_PP     &kp C_PREV   &kp C_NEXT   &kp C_MUTE   &kp C_VOL_DN &kp C_VOL_UP &trans      &trans      &trans      &trans
+                &trans       &trans       &trans       &trans       &kp C_BRI_DN &kp C_BRI_UP &trans                    &trans      &trans      &trans
+                &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans      &trans      &trans      &trans
+                &trans       &trans       &trans       &trans       &trans       &trans
+                &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans                   &trans
+                &trans       &trans       &trans       &trans       &trans                                 &trans      &trans      &trans
+            >;
+        };
+
+        bluetooth_layer {
+            bindings = <
+                // 左手部分
+                &trans      &bt_0       &bt_1       &bt_2       &bt_3       &bt_4
+                &trans      &bt_0       &bt_1       &bt_2       &bt_3       &bt_4       &trans
+                &trans      &trans      &trans      &trans      &trans      &trans      &trans
+                &bt_clr 0 0 &trans      &trans      &trans      &trans      &trans      &trans
+                &trans      &trans      &trans      &trans      &trans      &trans      &trans
+                &trans      &trans      &trans      &trans      &trans
+
+                // 右手部分
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans &trans
+            >;
+        };
+    };
+};

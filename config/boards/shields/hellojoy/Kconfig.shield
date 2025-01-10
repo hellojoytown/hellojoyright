@@ -1,0 +1,8 @@
+# Copyright (c) 2022 Duccio Breschi
+# SPDX-License-Identifier: MIT
+
+config SHIELD_HELLOJOY_LEFT
+    def_bool $(shields_list_contains,hellojoy_left)
+
+config SHIELD_HELLOJOY_RIGHT
+    def_bool $(shields_list_contains,hellojoy_right)

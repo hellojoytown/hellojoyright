@@ -1,0 +1,23 @@
+# Copyright (c) 2022 Duccio Breschi
+# SPDX-License-Identifier: MIT
+
+if SHIELD_HELLOJOY_LEFT
+
+config ZMK_KEYBOARD_NAME
+    default "HelloJoy"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+endif
+
+if SHIELD_HELLOJOY_LEFT || SHIELD_HELLOJOY_RIGHT
+
+config ZMK_SPLIT
+    default y
+
+endif # LEFT RIGHT
+
+
+
+
