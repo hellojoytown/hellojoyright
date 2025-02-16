@@ -7,6 +7,4 @@ requires: [nice_nano_v2]
 features:
   - keys
   - bluetooth 
-siblings:
-  - hellojoy_left
-  - hellojoy_right
+
